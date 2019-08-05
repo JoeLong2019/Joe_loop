@@ -9,38 +9,47 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Input, Button } from 'react-native-elements';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function HomeScreen() { // My Palette
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
+        <View>
+        
+          <ScrollView style={styles.container}>
+      <Text style= {{ fontSize: 40, fontWeight: "bold"}}>
+        User
+      </Text>
+      <Text>
+      Give a little info on the things you could use some help with 
+      </Text>
+      <Input placeholder="What lanuage do you speak?"/>
+    <Input placeholder="What lanuage you'd like to learn?"/>
+    <Input placeholder="First Name"/>
+    <Input placeholder="Last Name"/>
+    <Input placeholder="Age"/>
+    <Input placeholder="A issue you've been having?"/>
+    <Input placeholder="randon question"/>
+    <Input placeholder="Two Hobbies"/>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-        </View>
+        
+    </ScrollView>
 
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Getting Started
-            </Text>
-          </TouchableOpacity>
+    <Button
+  onPress
+  title="Submit"
+  color="#841584"
+/>
+          
         </View>
       </ScrollView>
+
+      
     </View>
   );
 }
@@ -48,54 +57,6 @@ export default function HomeScreen() {
 HomeScreen.navigationOptions = {
   header: null,
 };
-
-function MakeButton(){
-  return(
-    <ScrollView contentContainerStyle={style.contentContainer}>
-
-    <Text>
-      New text test
-    </Text>
-
-    </ScrollView>
-  );
-}
-
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text>
-      Advancing research and providing
-      evidence on immigration and integration
-      issues in communities across the U.S.
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-       {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-       
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -154,3 +115,7 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+
+
+
